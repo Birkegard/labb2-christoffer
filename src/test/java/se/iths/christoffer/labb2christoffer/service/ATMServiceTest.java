@@ -26,11 +26,8 @@ class ATMServiceTest {
 
     @Test
     public void testDepositMoney() {
-        when(accountComponent.getBalance()).thenReturn(0, 500);
         atmService.depositMoney(500);
-
-        assertEquals(500, atmService.getBalance());
-
+        verify(accountComponent).depositMoney(500);
     }
 
     @Test
